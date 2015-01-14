@@ -1,0 +1,13 @@
+cd /
+df -h
+mkdir /www
+echo '/dev/xvdb1  /www ext3    defaults    0  0' >> /etc/fstab
+mount -a
+fdisk -l
+fdisk /dev/xvdb
+fdisk -l
+mkfs.ext3 /dev/xvdb1
+mkdir -pv /www
+mount /dev/xvdb1 /www
+echo '/dev/xvdb1  /www ext3    defaults    0  0' >> /etc/fstab
+mount -a
