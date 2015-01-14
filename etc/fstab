@@ -1,8 +1,4 @@
-cd /
-df -h
-mkdir /www
-echo '/dev/xvdb1  /www ext3    defaults    0  0' >> /etc/fstab
-mount -a
+
 fdisk -l
 fdisk /dev/xvdb
 fdisk -l
