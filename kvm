@@ -1,0 +1,38 @@
+mkdir -p /cookie
+sudo fdisk -l | grep NTFS
+mount -t ntfs-3g /dev/sdc2 /cookie
+
+virsh list --all
+virsh edit demo1
+virsh destroy demo1
+
+cp /opt/vm/demo1.qcow2 /cookie
+virsh dumpxml demo1 > /cookie/demo1.xml
+
+virsh start cookie
+
+umount /cookie
+rm -rf /cookie
+
+----------end-----------------------------------
+
+
+
+
+
+mkdir -p /cookie
+sudo fdisk -l | grep NTFS
+mount -t ntfs-3g /dev/sdc2 /cookie
+
+cp /cookie/demo1.qcow2 /home/kvm/
+cp /cookie/demo1.xml /etc/libvirt/qemu
+cd /etc/libvirt/qemu
+chmod 600 demo1.xml
+
+umount /cookie
+rm -rf /cookie
+
+virsh define /etc/libvirt/qemu/demo1.xml
+virsh list --all
+
+
