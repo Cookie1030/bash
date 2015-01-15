@@ -1,0 +1,4 @@
+cat > log.txt <<EOF
+Hello
+Cookie
+EOF
