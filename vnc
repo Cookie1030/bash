@@ -1,0 +1,13 @@
+http://www.realvnc.com/download/get/1671/details/
+
+[Options-Expert-ColorLevel-Value:full]
+192.168.x.x:port
+
+
+rm -f /etc/udev/rules.d/70-persistent-net.rules
+hostname demo1
+vim /etc/sysconfig/network
+
+vim /etc/sysconfig/network-scripts/ifcfg-eth0
+
+reboot
